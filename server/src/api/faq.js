@@ -8,7 +8,11 @@ router.get("/", (req, res, next) => {});
 router.get("/:id", (req, res, next) => {});
 
 // Create One
-router.get("/", (req, res, next) => {});
+router.post("/", (req, res, next) => {});
 // Update One
-router.get("/:id", (req, res, next) => {});
+router.put("/:id", (req, res, next) => {});
+
+// Delete One
+router.delete("/:id", (req, res, next) => {});
+
 module.exports = router;
