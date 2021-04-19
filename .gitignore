@@ -2,4 +2,12 @@
 *.o
 
 # Ada Library Information
+# Object file
+*.o
+
+# Ada Library Information
 *.ali
+node_modules
+package-lock.json
+.vscode
+.DS_Store
