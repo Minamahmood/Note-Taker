@@ -6,6 +6,11 @@ const faqs = db.get("faqs");
 const router = express.Router();
 // READ All
 router.get("/", async(req, res, next) => {
+    try {
+        const items = await faqs.find({});
+    } catch (error) {
+        next(error);
+    }
     res.json({
         message: "Hello READ ALL",
     });
