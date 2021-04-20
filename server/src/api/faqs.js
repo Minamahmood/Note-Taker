@@ -72,6 +72,17 @@ router.put("/:id", async(req, res, next) => {
 
 // Delete One
 router.delete("/:id", (req, res, next) => {
+    try {
+        const { id } = req.params;
+        await faqs.remove({
+            _id: id
+        })
+        res.json({
+            message: 'Success',
+        });
+    } catch (error) {
+        next(error);
+    }
     res.json({
         message: "Hello Delete One",
     });
