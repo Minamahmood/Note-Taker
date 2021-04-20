@@ -25,16 +25,26 @@ router.get("/", async(req, res, next) => {
 });
 
 // Read One
-router.get("/:id", (req, res, next) => {
-    res.json({
-        message: "Hello READ One",
-    });
+router.get("/:id", async(req, res, next) => {
+    try {
+        const { id } = req.params;
+        const item = await faqs.findOne({
+            _id: id,
+        });
+        if (!item) return next();
+
+        return res.json(item);
+    } catch (error) {
+        next(error);
+    }
 });
 
 // Create One
 router.post("/", async(req, res, next) => {
     try {
         const value = await schema.validateAsync(req.body);
+        const inserted = await faqs.insert(value);
+        res.json(inserted);
         req.json(value);
     } catch (error) {
         next(error);
