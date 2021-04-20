@@ -19,9 +19,7 @@ router.get("/", async(req, res, next) => {
     } catch (error) {
         next(error);
     }
-    res.json({
-        message: "Hello READ ALL",
-    });
+
 });
 
 // Read One
@@ -83,9 +81,7 @@ router.delete("/:id", (req, res, next) => {
     } catch (error) {
         next(error);
     }
-    res.json({
-        message: "Hello Delete One",
-    });
+
 });
 
 module.exports = router;
